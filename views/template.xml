@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="sales_distributor_checkout_page" inherit_id="website_sale.address_on_payment">
+            <xpath expr="//div[@id='shipping_and_billing']" position="inside">
+                <div class="container oe_website_sale">
+                    <b>Sales Distributor: </b><br/>
+                    <span>
+                        <t t-foreach="distributors" t-as="part" >
+                            <input t-att-value="part.id" name="distributor" id="distributor" type="radio"
+                                   t-att-checked="'checked' if part.default_distributor == true else None"/>
+                            <span><t t-esc="part.name"/></span><br/>
+                        </t>
+                    </span>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
